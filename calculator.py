@@ -9,7 +9,7 @@ class Calculator:
 
     def __init__(self, op1: float, op2: float):
         """
-        Inicjalizuje obiekt Calculator z dwoma operandami.
+        Inicjalizuje obiekt  Calculator z dwoma operandami.
 
         Args:
             op1 (float): Pierwszy operand
