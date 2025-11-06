@@ -219,4 +219,7 @@ class TestCalculatorEdgeCases:
         calc = Calculator(-0.0, 5)
         assert calc.sum() == 5.0
 
-
+if __name__ == "__main__":
+    # Uruchomienie testów z terminala:
+    # pytest test_calculator.py -v
+    pytest.main([__file__, "-v"])
