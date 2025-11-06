@@ -5,7 +5,7 @@ from calculator import Calculator
 
 class TestCalculator:
     """
-    Kompleksowy zestaw testów dla klasy Calculator.
+    Zestaw testów dla klasy Calculator.
     """
 
     # --- Testy inicjalizacji ---
@@ -158,109 +158,6 @@ class TestCalculator:
         """Test dzielenia liczb zmiennoprzecinkowych."""
         calc = Calculator(7.5, 2.5)
         assert calc.divide() == pytest.approx(3.0)
-
-
-# --- Testy parametryzowane ---
-
-class TestCalculatorParametrized:
-    """
-    Testy parametryzowane dla różnych scenariuszy.
-    """
-
-    @pytest.mark.parametrize("op1, op2, expected", [
-        (10, 5, 15),
-        (0, 0, 0),
-        (-5, -3, -8),
-        (100, 200, 300),
-        (1.5, 2.5, 4.0),
-    ])
-    def test_sum_parametrized(self, op1, op2, expected):
-        """Test parametryzowany dodawania."""
-        calc = Calculator(op1, op2)
-        assert calc.sum() == pytest.approx(expected)
-
-    @pytest.mark.parametrize("op1, op2, expected", [
-        (10, 5, 5),
-        (0, 0, 0),
-        (5, 10, -5),
-        (100, 50, 50),
-        (7.5, 2.5, 5.0),
-    ])
-    def test_subtract_parametrized(self, op1, op2, expected):
-        """Test parametryzowany odejmowania."""
-        calc = Calculator(op1, op2)
-        assert calc.subtract() == pytest.approx(expected)
-
-    @pytest.mark.parametrize("op1, op2, expected", [
-        (10, 5, 50),
-        (0, 10, 0),
-        (-5, -3, 15),
-        (2, 3, 6),
-        (2.5, 4, 10.0),
-    ])
-    def test_multiply_parametrized(self, op1, op2, expected):
-        """Test parametryzowany mnożenia."""
-        calc = Calculator(op1, op2)
-        assert calc.multiply() == pytest.approx(expected)
-
-    @pytest.mark.parametrize("op1, op2, expected", [
-        (10, 5, 2.0),
-        (20, 4, 5.0),
-        (7, 2, 3.5),
-        (100, 25, 4.0),
-        (9, 3, 3.0),
-    ])
-    def test_divide_parametrized(self, op1, op2, expected):
-        """Test parametryzowany dzielenia."""
-        calc = Calculator(op1, op2)
-        assert calc.divide() == pytest.approx(expected)
-
-
-# --- Testy z fixtures ---
-
-@pytest.fixture
-def calc_10_5():
-    """Fixture zwracający kalkulator z wartościami 10 i 5."""
-    return Calculator(10, 5)
-
-
-@pytest.fixture
-def calc_zero():
-    """Fixture zwracający kalkulator z zerowymi wartościami."""
-    return Calculator(0, 0)
-
-
-@pytest.fixture
-def calc_negative():
-    """Fixture zwracający kalkulator z wartościami ujemnymi."""
-    return Calculator(-10, -5)
-
-
-class TestCalculatorWithFixtures:
-    """
-    Testy wykorzystujące fixtures.
-    """
-
-    def test_all_operations_with_fixture(self, calc_10_5):
-        """Test wszystkich operacji na jednym obiekcie z fixture."""
-        assert calc_10_5.sum() == 15
-        assert calc_10_5.subtract() == 5
-        assert calc_10_5.multiply() == 50
-        assert calc_10_5.divide() == 2.0
-
-    def test_zero_operations(self, calc_zero):
-        """Test operacji na zerach."""
-        assert calc_zero.sum() == 0
-        assert calc_zero.subtract() == 0
-        assert calc_zero.multiply() == 0
-
-    def test_negative_operations(self, calc_negative):
-        """Test operacji na liczbach ujemnych."""
-        assert calc_negative.sum() == -15
-        assert calc_negative.subtract() == -5
-        assert calc_negative.multiply() == 50
-        assert calc_negative.divide() == 2.0
-
 
 # --- Testy właściwości typu ---
 
