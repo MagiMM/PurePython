@@ -1,6 +1,6 @@
 Name                 Stmts   Miss  Cover
 ----------------------------------------
 calculator.py           31     16    48%
-test_calculator.py     122      1    99%
+test_calculator.py     120      0   100%
 ----------------------------------------
-TOTAL                  153     17    89%
+TOTAL                  151     16    89%
